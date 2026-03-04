@@ -1,0 +1,30 @@
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base, session
+from dotenv import load_dotenv
+import os
+from pathlib import Path
+
+# Get project root directory
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load .env explicitly
+load_dotenv(BASE_DIR / ".env")
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+engine = create_engine(DATABASE_URL)
+
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+        
+Base = declarative_base()
