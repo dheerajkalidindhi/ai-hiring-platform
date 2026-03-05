@@ -213,7 +213,7 @@ Install:
 
 ## 2 Clone Repository
 
-git clone https://github.com/YOUR_USERNAME/ai-hiring-platform.git
+git clone https://github.com/dheerajkalidindhi/ai-hiring-platform.git
 
 cd ai-hiring-platform
 
