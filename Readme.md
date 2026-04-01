@@ -11,6 +11,7 @@ The system extracts skills from uploaded resumes, compares them with job require
 ## Candidate Features
 
 - Browse available job postings
+- Verified company badges on verified listings
 - Upload resume (PDF)
 - Apply to jobs
 - View application status
@@ -19,6 +20,8 @@ The system extracts skills from uploaded resumes, compares them with job require
 ## Recruiter Features
 
 - Create job postings
+- Mark recruiter/company as verified
+- Verified company badge shown to candidates
 - View all applicants for a job
 - Automatically ranked candidates by AI score
 - AI explanation showing:
@@ -241,7 +244,7 @@ Backend API Docs
 
 http://localhost:8000/docs
 
----
+
 
 # Deployment
 

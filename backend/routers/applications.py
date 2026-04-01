@@ -17,12 +17,13 @@ router = APIRouter(tags=["Applications"])
 
 
 # Apply to job with resume upload
-from fastapi import UploadFile, File
+from fastapi import UploadFile, File, BackgroundTasks
 
 
 @router.post("/jobs/{job_id}/apply")
 def apply_to_job(
     job_id: int,
+    background_tasks: BackgroundTasks,
     resume: UploadFile = File(...),
     db: Session = Depends(get_db),
     current_user: dict = Depends(require_role("candidate"))
@@ -31,7 +32,8 @@ def apply_to_job(
         db=db,
         job_id=job_id,
         user_id=current_user["user_id"],
-        resume_file=resume
+        resume_file=resume,
+        background_tasks=background_tasks
     )
 
 

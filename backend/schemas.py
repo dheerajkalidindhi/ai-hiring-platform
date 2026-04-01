@@ -63,7 +63,7 @@ class RecruiterJobResponse(BaseModel):
     company_name: str | None = None
     description: str
     skills: str 
-    location: str 
+    location: str
     salary: int | None = None
     applications_count: int
 
@@ -79,6 +79,7 @@ class PublicJobResponse(BaseModel):
     location: Optional[str]
     salary: Optional[int]
     applications_count: int
+    is_verified: bool = False
 
     class Config:
         from_attributes = True
@@ -107,6 +108,6 @@ class ApplicationResponse(BaseModel):
     ai_score: Optional[float]
     created_at: datetime
 
-class Config:
-    from_attributes = True
+    class Config:
+        from_attributes = True
 

@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base, session
+from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 import os
 from pathlib import Path
@@ -19,6 +19,7 @@ SessionLocal = sessionmaker(
     autoflush=False,
     bind=engine
 )
+
 
 def get_db():
     db = SessionLocal()

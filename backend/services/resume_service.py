@@ -59,4 +59,4 @@ def extract_years_of_experience(text: str) -> int:
         years = [int(match[0]) for match in matches]
         return max(years)
 
-    return 0
+    return 0

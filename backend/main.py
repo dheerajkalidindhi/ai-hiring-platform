@@ -6,7 +6,7 @@ from database import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
 
 # Routers
-from routers import auth, users, jobs, applications
+from routers import auth, users, jobs, applications, websockets
 
 
 # ---------- Lifespan (Startup / Shutdown) ----------
@@ -50,6 +50,7 @@ app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(jobs.router)
 app.include_router(applications.router)
+app.include_router(websockets.router)
 
 
 # ---------- Root ----------

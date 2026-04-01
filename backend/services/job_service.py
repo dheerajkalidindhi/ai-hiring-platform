@@ -51,7 +51,8 @@ def get_all_jobs_service(db: Session):
             "skills": job.skills,
             "location": job.location,
             "salary": job.salary,
-            "applications_count": len(job.applications)
+            "applications_count": len(job.applications),
+            "is_verified": job.recruiter.is_verified
         })
 
     return result
@@ -162,4 +163,4 @@ def get_recruiter_jobs_service(db: Session, recruiter_id: int):
             
         })
 
-    return result
+    return result

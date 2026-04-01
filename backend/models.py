@@ -1,4 +1,4 @@
-from sqlalchemy import JSON, Column, Integer, String, Text, ForeignKey, DateTime, Float
+from sqlalchemy import JSON, Column, Integer, String, Text, ForeignKey, DateTime, Float, Boolean
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import json
@@ -17,6 +17,7 @@ class User(Base):
     role = Column(String, nullable=False)  # "recruiter" or "candidate"
     created_at = Column(DateTime, default=datetime.utcnow)
     company_name = Column(String, nullable=True)
+    is_verified = Column(Boolean, default=False)
 
     # Relationships
     jobs = relationship("Job", back_populates="recruiter", cascade="all, delete")
@@ -57,7 +58,7 @@ class Application(Base):
     job_id = Column(Integer, ForeignKey("jobs.id", ondelete="CASCADE"))
     candidate_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"))
 
-    status = Column(String, default="pending")
+    status = Column(String, default="processing")
     ai_score = Column(Float, nullable=True)
 
     resume_filename = Column(String, nullable=True)   
